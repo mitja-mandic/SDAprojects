@@ -18,6 +18,8 @@ train.pca.prcomp <- getPrcomp(train.pca)
 summary(train.pca)
 plot(train.pca$eigenvalues/sum(train.pca$eigenvalues),type="b")
 fviz_eig(train.pca.prcomp,choice="eigenvalue")
+
+
 #train.pca.ns <- PcaClassic(X_train)
 #plot(train.pca.ns$eigenvalues/sum(train.pca.ns$eigenvalues))
 #summary(train.pca.ns)
@@ -25,7 +27,7 @@ fviz_eig(train.pca.prcomp,choice="eigenvalue")
 #select 2 components
 train.pca.2 <- PcaClassic(X_train, k=2, scale=T)
 plot(train.pca.2)
-biplot(train.pca.2, scale=0)#, cex=c(0.7,1))
+#biplot(train.pca.2, scale=0, cex=c(0.7,1))
 #plot(train.pca,6,crit.pca.distances=0.99)
 
 train.pca.2$scores
@@ -37,17 +39,19 @@ matplot(t(X_train),type="l")
 par(mfrow=c(1,1))
 matplot(train.pca.2$scores,type='l')
 pairs(train.pca.2$scores)#, col=y)
-plot(train.pca.2$scores,col=y,asp=1)
-plot(train.pca.2,crit.pca.distances=0.99)
+plot(train.pca.2$scores,col=y,asp=1, pch=19, main="Classic PCA scores")
+plot(train.pca.2,crit.pca.distances=0.99, pch=19)
 
+#Robust PCA
 train.robpca.2 <- PcaHubert(X_train,k=2)
 plot(train.robpca.2)
 matplot(train.robpca.2$loadings, type="l", xlab="Wavelength", ylab="Loadings",main="robust PCA loadings")
-plot(train.robpca.2$scores,asp=1, main="Robust PCA scores")
+plot(train.robpca.2$scores,asp=1, main="Robust PCA scores",pch=19)
 
 
-#validation set
+#validation set. Continue with classic PCA.
 loadings.pca.2 <- as.matrix(train.pca.2$loadings)
+##CHECK FOR SCALING THING. SLIDE 41,42
 
 matr <- X_valid
 matr.avg <- colMeans(matr)
@@ -59,4 +63,26 @@ scores.valid <- as.matrix(valid.pca.2$scores)
 plot(train.pca.2$scores,pch=19)
 points(validation.scores, col="green",pch=19)
 
+euclnorm <- function(y) sqrt(sum(y^2))
+og.distance <- apply(X_valid - predicted_values,1,euclnorm)
 
+score.distance <- sqrt(mahalanobis(validation.scores, center = FALSE, diag(valid.pca.2$eigenvalues)))
+
+cutoff.sd <- train.pca.2$cutoff.sd
+cutoff.od <- train.pca.2$cutoff.od
+ods <- c(train.pca.2$od)#, og.distance)
+sds <- c(train.pca.2$sd)#, score.distance)
+new.distances <- cbind(score.distance,og.distance)
+
+xmax <- max(sds, cutoff.sd,score.distance)
+ymax <- max(ods, cutoff.od,og.distance)
+
+
+outl.index <- (length(ods)-3) : length(ods)
+colors <- rep("black", length(ods))
+colors[outl.index] <- c("red", "red", "red", "orange")
+plot(sds, ods, pch = 19, xlim = c(0, xmax + 1), ylim = c(0, ymax + 0.2), col = colors,
+     main = "Classical PCA", xlab = "Score distance", ylab = "Orthogonal distance")
+points(new.distances,col = "blue",pch=19)
+abline(h = cutoff.od, col = "red", lwd = 1.5)
+abline(v = cutoff.sd, col ="red", lwd = 1.5)
