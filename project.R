@@ -14,9 +14,10 @@ X_train %>% as.data.frame() %>% summarise_if(is.numeric, var)
 #QUESTION 2
 
 #as some variables have much larger variances, I think we need to scale them before applying PCA.
-
+#work with a correlation matrix
 train.pca <- PcaClassic(X_train, scale = T)
 train.pca.prcomp <- getPrcomp(train.pca)
+plot(train.pca$scores)
 summary(train.pca)
 plot(train.pca$eigenvalues/sum(train.pca$eigenvalues),type="b")
 fviz_eig(train.pca.prcomp,choice="eigenvalue")
@@ -33,6 +34,7 @@ outliers <- c(14,33,42,48,88)
 #biplot(train.pca.2, scale=0, cex=c(0.7,1))
 #plot(train.pca,6,crit.pca.distances=0.99)
 
+
 train.pca.2$scores
 par(mfrow=c(2,1))
 matplot(train.pca.2$loadings, type="l", xlab="Wavelength", ylab="Loadings", main="classical PCA loadings")
@@ -40,8 +42,8 @@ matplot(t(X_train),type="l")
 # train.pca.6 <- PcaClassic(X, k=6, scale = T)
 # plot(train.pca.6,crit.pca.distances=0.99)
 par(mfrow=c(1,1))
-matplot(train.pca.2$scores,type='l')
-pairs(train.pca.2$scores)#, col=y)
+# matplot(train.pca.2$scores,type='l')
+# pairs(train.pca.2$scores)#, col=y)
 plot(train.pca.2$scores,col=y,asp=1, pch=19, main="Classic PCA scores")
 plot(train.pca.2,crit.pca.distances=0.99, pch=19)
 
@@ -91,7 +93,14 @@ abline(v = cutoff.sd, col ="red", lwd = 1.5)
 
 
 #QUESTION 5
-X_train.scores.clean <- train.pca.2$scores[-outliers,]
-shapiro.test(X_train.scores.clean)
+outliers.robust <- unique(c(which(train.robpca.2$od > train.robpca.2$cutoff.od),which(train.robpca.2$sd > train.robpca.2$cutoff.sd) ))
+outliers.classic <- unique(c(which(train.pca.2$od > train.pca.2$cutoff.od),which(train.pca.2$sd > train.pca.2$cutoff.sd) ))
 
+X_train.scores.clean.classic <- train.pca.2$scores[-outliers.classic,]
+shapiro.test(X_train.scores.clean.classic)
 
+X_train.scores.clean.robust <- train.robpca.2$scores[-outliers.robust,]
+shapiro.test(X_train.scores.clean.robust)
+
+plot(X_train.scores.clean.robust,col="blue")
+points(train.robpca.2$scores,pch=19)
