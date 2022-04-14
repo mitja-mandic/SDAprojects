@@ -10,6 +10,7 @@ colorCant <- c("blue3", "orange", "darkgreen","red")
 
 matplot(t(X), lty=1, type="l",col = factor(y),xlab = "Wavelength",ylab="",main = "Spectra")
 legend(x=150,y=3,legend=c("D","H","Ha","E"),col=unique(factor(y)),lty=1)
+matplot(t(X_train), lty=1, type="l",col = "black",xlab = "Wavelength",ylab="",main = "Training data spectra")
 
 #Check column variances to see if we need to scale variables:
 variances <- X_train %>% as.data.frame() %>% summarise_if(is.numeric, var)
@@ -27,7 +28,7 @@ train.pca.prcomp <- getPrcomp(train.pca)
 plot(train.pca$scores, main = "Classic PCA Scores", pch=19, col=factor(mysample))
 legend("bottomleft",legend = cultivar_levels, col = unique(factor(mysample)),pch=19)
 
-autoplot(train.pca.prcomp, data=X_train, colour = mygroups)
+#autoplot(train.pca.prcomp, data=X_train, colour = mygroups)
 summary(train.pca)
 
 plot(train.pca$eigenvalues/sum(train.pca$eigenvalues),type="b")
@@ -73,13 +74,26 @@ outliers.robust.sd <- train.robpca.2$sd[outliers.robust]
 outliers.robust.od <- train.robpca.2$od[outliers.robust]
 
 
-plot(train.robpca.2,pch=19)
+
 #text(x=train.robpca.2$sd,y=train.robpca.2$od,labels = "")
 #text(x=outliers.robust.sd+0.2, y=outliers.robust.od,labels=as.character(outliers.robust))
 matplot(train.robpca.2$loadings, type="l", xlab="Wavelength", ylab="Loadings",main="Robust PCA loadings")
 legend("bottomleft",legend = c("v1","v2"),col=c("black","red"),lty=c(1,2))
 
 plot(train.robpca.2$scores,asp=1, main="Robust PCA scores",pch=19)
+
+#investigate two groups
+possibleGroup <-which(X_train[,100]>1)
+plot(train.robpca.2$scores,pch=19,col="blue", main = "Score plot with two groups marked")
+points(train.robpca.2$scores[possibleGroup,], pch=19, col="green")
+legend("topleft", legend = c("group 1", "group 2"), col = c("blue", "green"), pch=19)
+
+
+
+plot(train.robpca.2,pch=19, col = "blue", main = "Robust PCA scores with two groups detailed")
+points(x = train.robpca.2$sd[possibleGroup], y = train.robpca.2$od[possibleGroup],pch=19,col="green")
+legend("topright", legend = c("group 1", "group 2"), col = c("blue", "green"), pch=19)
+
 
 #QUESTION 4
 #validation set.
@@ -132,11 +146,13 @@ outliers.classic <- unique(c(which(train.pca.2$od > train.pca.2$cutoff.od),which
 X_train.scores.clean.classic <- train.pca.2$scores[-outliers.classic,]
 shapiro.test(X_train.scores.clean.classic)
 
-X_train.scores.clean.robust <- train.robpca.2$scores[-outliers.robust,]
 
+X_train.scores.clean.robust <- train.robpca.2$scores[-outliers.robust,]
+shapiro.test(X_train.scores.clean.robust)
 
 plot(train.robpca.2$scores,col="blue",xlim=c(-100,60),ylim=c(-30,45),pch=19, main="Scores with classified outliers")
 points(train.robpca.2$scores[outliers.robust,],col="green",pch=19)
 legend("topleft",legend=c("Regular points", "Outliers"),col=c('blue',"green"),pch=19)
 shapiro.test(X_train.scores.clean.robust)
+
 
