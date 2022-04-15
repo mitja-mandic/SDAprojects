@@ -111,7 +111,7 @@ August\or September\or October\or November\or December\fi\ \number\year}
 
 \section{Introduction}
 For the first project we are analysing the spectroscopy dataset of four different types of cantaloupe melons. Each spectra was measured on 256 wavelengths of 2158 melons.
-In \label{fig:spectra} we plot the spectra of the whole dataset.
+In \ref{fig:spectra} we plot the spectra of the whole dataset.
 \begin{figure}[h!]
     \begin{subfigure}[b]{0.5\linewidth}
         \centering
@@ -175,7 +175,7 @@ we then see on figure \ref{fig:scoresClassic}.
 \section{Robust PCA}
 In this section we comment on results obtaining by performing robust principal component analysis of the training data. For this we use function \texttt{PcaHubert} from the
 package \texttt{rrcov}, with scale parameter set to \texttt{mad.} Interestingly, we obtain quite different results compared to classical PCA analysis. To facilitate
-the discussion, we recreate the plots seen in section \ref{classicPCA}.
+the discussion, we recreate the plots seen in section \ref{classicPCA} in figure \ref{robust}.
 
 \begin{figure}[h!]
   \begin{subfigure}[b]{0.5\linewidth}
@@ -190,6 +190,7 @@ the discussion, we recreate the plots seen in section \ref{classicPCA}.
    \caption{Scores of robust PCA}\label{fig:scoresRobust}
   \end{subfigure}%
  \caption{Outlier plot and scores of robust PCA.}
+ \label{robust}
 \end{figure} 
 
 Firtly we notice that much more points are exceeding the score or orthogonal distance cutoff. 
@@ -198,7 +199,7 @@ are also much further from the main data cloud than those detected in previous s
 
 Another thing we notice comparing figures \ref{fig:scoresRobust} and \ref{fig:scoresClassic} is that in the former case the two groups are much further apart. Let us
 now try to find the origin of such behaviour. In \ref{fig:trainDataSpectra} we see that two groups seem to differ at, for example, 100th wavelength, with one group having
-values around 0 and the other between 1 and 2. After separating them like this, we see that this are the groups also found by PCA, as seen in \ref{twoGroupScore}.
+values around 0 and the other between 1 and 2. After separating them like this, we see that this are the groups also found by PCA, as seen in \ref{fig:twoGroupScore}.
 
 \begin{figure}
   \begin{center}
@@ -225,10 +226,9 @@ Outlier plot, containing values from training data and calculated validation dat
   \end{center}
 \end{figure}
 
-We see that dataclouds in the bottom left aling rather nicely. On the other hands, outliers are more dispersed when 
-considering predicted data, especially in the orthogonal distance. We assume that the second data cloud of predicted values might 
-be affected by the two severe orthogonal outliers found in robust PCA (points 14 and 33). 
-
+We see that dataclouds in the bottom left align rather nicely. On the other hands, outliers are more dispersed when 
+considering predicted data, especially in orthogonal distance. We assume that the second data cloud of predicted values might 
+be affected by the two severe orthogonal outliers found in robust PCA (points 14 and 33 seen in figure \ref{fig:scoresRobust}). 
 Similar amount of outliers are found in score distance.
 
 Plotting the spectra of predicted and actual data gives satisfying results, with plots looking very similar.
@@ -249,11 +249,11 @@ Plotting the spectra of predicted and actual data gives satisfying results, with
 
 \section{Normality of training data}
 In the final section of the report we investigate whether the clean training dataset can be assumed to be sampled from a normal distrbution.
-We take into accound outliers found by robust PCA, that is points exceeding orthogonal and/or score distance cutoff. 
+From training data we remove outliers found by robust PCA, that is points exceeding orthogonal and/or score distance cutoff.
 
-There are 16 such points found, which we then remove from the dataset. Shapiro-Wilk test strongly rejects normality with p-value 
+There are 16 such points found. Shapiro-Wilk test strongly rejects normality with p-value
 $1.768\cdot 10^{-12}.$ Plotting the regular and removed values we can see that there still are two groups present, which makes it
-easier to understand such a low p-value.
+easier to understand such a low p-value. Because of these groups, Mahalanobis distance measures are useless.
 \begin{figure}[ht!]
   \begin{center}
     \centering
@@ -264,7 +264,8 @@ easier to understand such a low p-value.
 \end{figure}
 
 Scores in this case certainly are not unimodally normally distributed, as we have found two very clear groups. However, we might consider investigating normality of scores of
-each group separately.
+each group separately. For the group on the left Shapiro-Wilk gives once again a very low p-value, so normality is rejected in this case as well.
+Similar results are obtained for the other part of the data.
 
-
+We conclude that scores of cleaned data are not normally distributed and neither are scores in each of the existing groups.
 \end{document}

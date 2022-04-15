@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.8.28)  14 APR 2022 10:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.8.28)  15 APR 2022 11:21
 entering extended mode
 **"c:/Users/Mitja/Documents/Faks/year 1/Statistical Data Analysis/SDAprojects/reports/reportNew.tex"
 (c:/Users/Mitja/Documents/Faks/year 1/Statistical Data Analysis/SDAprojects/reports/reportNew.tex
@@ -764,11 +764,7 @@ File: biblatex.cfg
 File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count448
 \l__pdf_internal_box=\box67
-) (reportNew.aux
-
-LaTeX Warning: Label `fig:spectra' multiply defined.
-
-)
+) (reportNew.aux)
 \openout1 = `reportNew.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 88.
@@ -877,22 +873,22 @@ Non-PDF special ignored!
 {C:/Users/Mitja/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
  <../images/logo.eps.pdf>]
-<../images/spectra.png, id=38, 484.81125pt x 365.86688pt>
+<../images/spectra.png, id=39, 484.81125pt x 365.86688pt>
 File: ../images/spectra.png Graphic file (type png)
 <use ../images/spectra.png>
 Package pdftex.def Info: ../images/spectra.png  used on input line 118.
 (pdftex.def)             Requested size: 241.84842pt x 182.51428pt.
-<../images/trainDataSpectra.png, id=39, 484.05844pt x 364.36125pt>
+<../images/trainDataSpectra.png, id=40, 484.05844pt x 364.36125pt>
 File: ../images/trainDataSpectra.png Graphic file (type png)
 <use ../images/trainDataSpectra.png>
 Package pdftex.def Info: ../images/trainDataSpectra.png  used on input line 124.
 (pdftex.def)             Requested size: 241.84842pt x 182.04674pt.
-<../images/variances.png, id=42, 484.81125pt x 365.86688pt>
+<../images/variances.png, id=43, 484.81125pt x 365.86688pt>
 File: ../images/variances.png Graphic file (type png)
 <use ../images/variances.png>
 Package pdftex.def Info: ../images/variances.png  used on input line 144.
 (pdftex.def)             Requested size: 241.84842pt x 182.51428pt.
-<../images/screePlot.png, id=43, 484.81125pt x 365.86688pt>
+<../images/screePlot.png, id=44, 484.81125pt x 365.86688pt>
 File: ../images/screePlot.png Graphic file (type png)
 <use ../images/screePlot.png>
 Package pdftex.def Info: ../images/screePlot.png  used on input line 150.
@@ -901,12 +897,12 @@ Package pdftex.def Info: ../images/screePlot.png  used on input line 150.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<../images/outliersClassic.png, id=46, 484.81125pt x 365.86688pt>
+<../images/outliersClassic.png, id=47, 484.81125pt x 365.86688pt>
 File: ../images/outliersClassic.png Graphic file (type png)
 <use ../images/outliersClassic.png>
 Package pdftex.def Info: ../images/outliersClassic.png  used on input line 163.
 (pdftex.def)             Requested size: 241.84842pt x 182.51428pt.
-<../images/ClassicPCAScores.png, id=47, 484.81125pt x 365.86688pt>
+<../images/ClassicPCAScores.png, id=48, 484.81125pt x 365.86688pt>
 File: ../images/ClassicPCAScores.png Graphic file (type png)
 <use ../images/ClassicPCAScores.png>
 Package pdftex.def Info: ../images/ClassicPCAScores.png  used on input line 169.
@@ -914,16 +910,6 @@ Package pdftex.def Info: ../images/ClassicPCAScores.png  used on input line 169.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<../images/robustPCAoutliers.png, id=49, 484.81125pt x 365.86688pt>
-File: ../images/robustPCAoutliers.png Graphic file (type png)
-<use ../images/robustPCAoutliers.png>
-Package pdftex.def Info: ../images/robustPCAoutliers.png  used on input line 183.
-(pdftex.def)             Requested size: 241.84842pt x 182.51428pt.
-<../images/robustPCAscores.png, id=50, 484.81125pt x 365.86688pt>
-File: ../images/robustPCAscores.png Graphic file (type png)
-<use ../images/robustPCAscores.png>
-Package pdftex.def Info: ../images/robustPCAscores.png  used on input line 189.
-(pdftex.def)             Requested size: 241.84842pt x 182.51428pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -934,20 +920,28 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.193 \end{figure}
-                   [1
+l.179 
+       [1
 
  <../images/spectra.png> <../images/trainDataSpectra.png>]
+<../images/robustPCAoutliers.png, id=63, 484.81125pt x 365.86688pt>
+File: ../images/robustPCAoutliers.png Graphic file (type png)
+<use ../images/robustPCAoutliers.png>
+Package pdftex.def Info: ../images/robustPCAoutliers.png  used on input line 183.
+(pdftex.def)             Requested size: 241.84842pt x 182.51428pt.
+<../images/robustPCAscores.png, id=64, 484.81125pt x 365.86688pt>
+File: ../images/robustPCAscores.png Graphic file (type png)
+<use ../images/robustPCAscores.png>
+Package pdftex.def Info: ../images/robustPCAscores.png  used on input line 189.
+(pdftex.def)             Requested size: 241.84842pt x 182.51428pt.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-LaTeX Warning: Reference `twoGroupScore' on page 2 undefined on input line 201.
-
-<../images/twoGroupScore.png, id=66, 484.05844pt x 364.36125pt>
+<../images/twoGroupScore.png, id=69, 484.05844pt x 364.36125pt>
 File: ../images/twoGroupScore.png Graphic file (type png)
 <use ../images/twoGroupScore.png>
-Package pdftex.def Info: ../images/twoGroupScore.png  used on input line 206.
+Package pdftex.def Info: ../images/twoGroupScore.png  used on input line 207.
 (pdftex.def)             Requested size: 241.84842pt x 182.04674pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -957,21 +951,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [2 <../images/variances.png> <../images/screePlot.png> <../images/outliersClassic.png> <../images/ClassicPCAScores.png>]
-<../images/outlierPred.png, id=77, 484.81125pt x 365.86688pt>
+<../images/outlierPred.png, id=81, 484.81125pt x 365.86688pt>
 File: ../images/outlierPred.png Graphic file (type png)
 <use ../images/outlierPred.png>
-Package pdftex.def Info: ../images/outlierPred.png  used on input line 222.
+Package pdftex.def Info: ../images/outlierPred.png  used on input line 223.
 (pdftex.def)             Requested size: 241.84842pt x 182.51428pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<../images/validDataSpectra.png, id=78, 484.81125pt x 365.86688pt>
+<../images/validDataSpectra.png, id=83, 484.81125pt x 365.86688pt>
 File: ../images/validDataSpectra.png Graphic file (type png)
 <use ../images/validDataSpectra.png>
 Package pdftex.def Info: ../images/validDataSpectra.png  used on input line 238.
 (pdftex.def)             Requested size: 241.84842pt x 182.51428pt.
-<../images/predictedSpectra.png, id=79, 484.81125pt x 365.86688pt>
+<../images/predictedSpectra.png, id=84, 484.81125pt x 365.86688pt>
 File: ../images/predictedSpectra.png Graphic file (type png)
 <use ../images/predictedSpectra.png>
 Package pdftex.def Info: ../images/predictedSpectra.png  used on input line 244.
@@ -987,7 +981,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [3 <../images/robustPCAoutliers.png> <../images/robustPCAscores.png> <../images/twoGroupScore.png>]
-<../images/regularAndOutliers.png, id=89, 484.05844pt x 355.3275pt>
+<../images/regularAndOutliers.png, id=93, 484.05844pt x 355.3275pt>
 File: ../images/regularAndOutliers.png Graphic file (type png)
 <use ../images/regularAndOutliers.png>
 Package pdftex.def Info: ../images/regularAndOutliers.png  used on input line 260.
@@ -1009,12 +1003,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [5 <../images/regularAndOutliers.png>] (reportNew.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `reportNew.out' has not changed.
 (rerunfilecheck)             Checksum: F9F6D70242A1FE93E8B20578D5B6C72F;656.
 Package logreq Info: Writing requests to 'reportNew.run.xml'.
@@ -1023,16 +1011,16 @@ Package logreq Info: Writing requests to 'reportNew.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  29874 strings out of 478834
- 556547 string characters out of 2845283
- 1247769 words of memory out of 3000000
+ 556540 string characters out of 2845283
+ 1246799 words of memory out of 3000000
  47300 multiletter control sequences out of 15000+600000
  418186 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,12n,89p,827b,759s stack positions out of 5000i,500n,10000p,200000b,80000s
 <C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on reportNew.pdf (6 pages, 227691 bytes).
+Output written on reportNew.pdf (6 pages, 228559 bytes).
 PDF statistics:
- 155 PDF objects out of 1000 (max. 8388607)
+ 159 PDF objects out of 1000 (max. 8388607)
  20 named destinations out of 1000 (max. 500000)
  123 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -8,6 +8,8 @@ X_train <- data.frame(X[mysample[1:90], ])
 X_valid <- data.frame(X[mysample[91:180], ])
 colorCant <- c("blue3", "orange", "darkgreen","red")
 
+#Here we plot the spectra of the whole dataset and the training data
+
 matplot(t(X), lty=1, type="l",col = factor(y),xlab = "Wavelength",ylab="",main = "Spectra")
 legend(x=150,y=3,legend=c("D","H","Ha","E"),col=unique(factor(y)),lty=1)
 matplot(t(X_train), lty=1, type="l",col = "black",xlab = "Wavelength",ylab="",main = "Training data spectra")
@@ -28,42 +30,23 @@ train.pca.prcomp <- getPrcomp(train.pca)
 plot(train.pca$scores, main = "Classic PCA Scores", pch=19, col=factor(mysample))
 legend("bottomleft",legend = cultivar_levels, col = unique(factor(mysample)),pch=19)
 
-#autoplot(train.pca.prcomp, data=X_train, colour = mygroups)
 summary(train.pca)
 
+#Both plots demonstrate the same thing - how many components to keep
 plot(train.pca$eigenvalues/sum(train.pca$eigenvalues),type="b")
 fviz_eig(train.pca.prcomp,choice="eigenvalue")
 
-
-#train.pca.ns <- PcaClassic(X_train)
-#plot(train.pca.ns$eigenvalues/sum(train.pca.ns$eigenvalues))
-#summary(train.pca.ns)
-
-#select 2 components
+#select 2 components and draw some plots
 train.pca.2 <- PcaClassic(X_train, k=2, scale=T)
 train.pca.2.prcomp <- getPrcomp(train.pca.2)
 fviz_pca_biplot(train.pca.2.prcomp, label="var")
-
-outliers <- c(14,33,42,48,88)
-#biplot(train.pca.2, scale=0, cex=c(0.7,1))
-#plot(train.pca,6,crit.pca.distances=0.99)
-
-
-train.pca.2$scores
 
 matplot(train.pca.2$loadings, type="l", xlab="Wavelength", ylab="Loadings", main="Classical PCA loadings", 
         ylim=c(-0.1, 0.2), yaxt="n")
 axis(2, at=seq(-0.1, 0.2, 0.05), labels=seq(-0.1, 0.2, 0.05))
 legend("topleft",legend = c("v1","v2"),col=c("black","red"),lty=c(1,2))
 
-matplot(t(X_train),type="l")
-# train.pca.6 <- PcaClassic(X, k=6, scale = T)
-# plot(train.pca.6,crit.pca.distances=0.99)
-par(mfrow=c(1,1))
-# matplot(train.pca.2$scores,type='l')
-# pairs(train.pca.2$scores)#, col=y)
 plot(train.pca.2$scores,col=y,asp=1, pch=19, main="Classic PCA scores")
-#plot(train.pca.2,crit.pca.distances=0.99, pch=19)
 
 #QUESTION 3
 
@@ -73,16 +56,12 @@ outliers.robust <- unique(c(which(train.robpca.2$od > train.robpca.2$cutoff.od),
 outliers.robust.sd <- train.robpca.2$sd[outliers.robust]
 outliers.robust.od <- train.robpca.2$od[outliers.robust]
 
-
-
-#text(x=train.robpca.2$sd,y=train.robpca.2$od,labels = "")
-#text(x=outliers.robust.sd+0.2, y=outliers.robust.od,labels=as.character(outliers.robust))
 matplot(train.robpca.2$loadings, type="l", xlab="Wavelength", ylab="Loadings",main="Robust PCA loadings")
 legend("bottomleft",legend = c("v1","v2"),col=c("black","red"),lty=c(1,2))
 
 plot(train.robpca.2$scores,asp=1, main="Robust PCA scores",pch=19)
 
-#investigate two groups
+#investigate two groups - very clear division with two outliers (which we detect later)
 possibleGroup <-which(X_train[,100]>1)
 plot(train.robpca.2$scores,pch=19,col="blue", main = "Score plot with two groups marked")
 points(train.robpca.2$scores[possibleGroup,], pch=19, col="green")
@@ -96,7 +75,7 @@ legend("topright", legend = c("group 1", "group 2"), col = c("blue", "green"), p
 
 
 #QUESTION 4
-#validation set.
+#validation set analysis. Here we use mainly adapted code from the last exercise session.
 
 which_pca <- train.robpca.2
 
@@ -140,12 +119,9 @@ matplot(t(X_valid),type="l",lty=1, xlab = "Wavelength",ylab="", main="Observed v
 
 
 #QUESTION 5
-outliers.robust <- unique(c(which(train.robpca.2$od > train.robpca.2$cutoff.od),which(train.robpca.2$sd > train.robpca.2$cutoff.sd) ))
-outliers.classic <- unique(c(which(train.pca.2$od > train.pca.2$cutoff.od),which(train.pca.2$sd > train.pca.2$cutoff.sd) ))
 
-X_train.scores.clean.classic <- train.pca.2$scores[-outliers.classic,]
-shapiro.test(X_train.scores.clean.classic)
-
+#normality tests, first of the whole cleaned training dataset and then of each of the sub-groups present
+outliers.robust <- unique(c(which(train.robpca.2$od > train.robpca.2$cutoff.od),which(train.robpca.2$sd > train.robpca.2$cutoff.sd)))
 
 X_train.scores.clean.robust <- train.robpca.2$scores[-outliers.robust,]
 shapiro.test(X_train.scores.clean.robust)
@@ -155,4 +131,16 @@ points(train.robpca.2$scores[outliers.robust,],col="green",pch=19)
 legend("topleft",legend=c("Regular points", "Outliers"),col=c('blue',"green"),pch=19)
 shapiro.test(X_train.scores.clean.robust)
 
+#Here we perform Shapiro-Wilk tests on each of the groups found in data.
+
+clean.in.group <- as.character(possibleGroup[is.element(as.character(possibleGroup),rownames(X_train.scores.clean.robust))])
+
+
+plot(X_train.scores.clean.robust, col="blue", pch=19, main="Outlier free dataset by group")
+points(X_train.scores.clean.robust[clean.in.group,],col="green", pch=19)
+
+shapiro.test(X_train.scores.clean.robust[clean.in.group,])
+
+
+shapiro.test(X_train.scores.clean.robust[!(rownames(X_train.scores.clean.robust) %in% clean.in.group),])
 
