@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.8.28)  15 APR 2022 11:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.8.28)  3 MAY 2022 10:59
 entering extended mode
-**"c:/Users/Mitja/Documents/Faks/year 1/Statistical Data Analysis/SDAprojects/reports/reportNew.tex"
-(c:/Users/Mitja/Documents/Faks/year 1/Statistical Data Analysis/SDAprojects/reports/reportNew.tex
+**"c:/Users/Mitja/Documents/Faks/year 1/Statistical Data Analysis/SDAprojects/reports/project 2/report_cluster.tex"
+(c:/Users/Mitja/Documents/Faks/year 1/Statistical Data Analysis/SDAprojects/reports/project 2/report_cluster.tex
 LaTeX2e <2021-06-01> patch level 1
 L3 programming layer <2021-07-12> (C:\Users\Mitja\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\article.cls
 Document Class: article 2021/02/12 v1.4n Standard LaTeX document class
@@ -764,8 +764,8 @@ File: biblatex.cfg
 File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count448
 \l__pdf_internal_box=\box67
-) (reportNew.aux)
-\openout1 = `reportNew.aux'.
+) (report_cluster.aux)
+\openout1 = `report_cluster.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 88.
 LaTeX Font Info:    ... okay on input line 88.
@@ -817,9 +817,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 88.
 LaTeX Info: Redefining \pageref on input line 88.
 LaTeX Info: Redefining \nameref on input line 88.
- (reportNew.out) (reportNew.out)
+ (report_cluster.out) (report_cluster.out)
 \@outlinefile=\write6
-\openout6 = `reportNew.out'.
+\openout6 = `report_cluster.out'.
 
 \c@lstlisting=\count456
 Package biblatex Info: Trying to load language 'english'...
@@ -843,17 +843,17 @@ Package: xparse 2021-08-04 L3 Experimental document command parser
 )
 Package: blx-case-expl3 2020/12/31 v3.16 expl3 case changing code for biblatex
 )
-\openout5 = `reportNew.bcf'.
+\openout5 = `report_cluster.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'reportNew.bbl' found.
- (reportNew.bbl)
+Package biblatex Info: ... file 'report_cluster.bbl' found.
+ (report_cluster.bbl)
 Package biblatex Info: Reference section=0 on input line 88.
 Package biblatex Info: Reference segment=0 on input line 88.
-<../images/logo.eps.pdf, id=26, 159.59625pt x 57.21375pt>
-File: ../images/logo.eps.pdf Graphic file (type pdf)
-<use ../images/logo.eps.pdf>
-Package pdftex.def Info: ../images/logo.eps.pdf  used on input line 99.
+<../../Images//../images/logo.eps.pdf, id=22, 159.59625pt x 57.21375pt>
+File: ../../Images//../images/logo.eps.pdf Graphic file (type pdf)
+<use ../../Images//../images/logo.eps.pdf>
+Package pdftex.def Info: ../../Images//../images/logo.eps.pdf  used on input line 99.
 (pdftex.def)             Requested size: 119.05641pt x 42.67912pt.
 
 Overfull \hbox (5.24539pt too wide) in paragraph at lines 99--99
@@ -872,44 +872,7 @@ Non-PDF special ignored!
 <special> header=psfrag.pro
 {C:/Users/Mitja/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
- <../images/logo.eps.pdf>]
-<../images/spectra.png, id=39, 484.81125pt x 365.86688pt>
-File: ../images/spectra.png Graphic file (type png)
-<use ../images/spectra.png>
-Package pdftex.def Info: ../images/spectra.png  used on input line 118.
-(pdftex.def)             Requested size: 241.84842pt x 182.51428pt.
-<../images/trainDataSpectra.png, id=40, 484.05844pt x 364.36125pt>
-File: ../images/trainDataSpectra.png Graphic file (type png)
-<use ../images/trainDataSpectra.png>
-Package pdftex.def Info: ../images/trainDataSpectra.png  used on input line 124.
-(pdftex.def)             Requested size: 241.84842pt x 182.04674pt.
-<../images/variances.png, id=43, 484.81125pt x 365.86688pt>
-File: ../images/variances.png Graphic file (type png)
-<use ../images/variances.png>
-Package pdftex.def Info: ../images/variances.png  used on input line 144.
-(pdftex.def)             Requested size: 241.84842pt x 182.51428pt.
-<../images/screePlot.png, id=44, 484.81125pt x 365.86688pt>
-File: ../images/screePlot.png Graphic file (type png)
-<use ../images/screePlot.png>
-Package pdftex.def Info: ../images/screePlot.png  used on input line 150.
-(pdftex.def)             Requested size: 241.84842pt x 182.51428pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<../images/outliersClassic.png, id=47, 484.81125pt x 365.86688pt>
-File: ../images/outliersClassic.png Graphic file (type png)
-<use ../images/outliersClassic.png>
-Package pdftex.def Info: ../images/outliersClassic.png  used on input line 163.
-(pdftex.def)             Requested size: 241.84842pt x 182.51428pt.
-<../images/ClassicPCAScores.png, id=48, 484.81125pt x 365.86688pt>
-File: ../images/ClassicPCAScores.png Graphic file (type png)
-<use ../images/ClassicPCAScores.png>
-Package pdftex.def Info: ../images/ClassicPCAScores.png  used on input line 169.
-(pdftex.def)             Requested size: 241.84842pt x 182.51428pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
+ <../../Images//../images/logo.eps.pdf>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -920,107 +883,28 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.179 
-       [1
+l.130 \end{document}
+                     [1
 
- <../images/spectra.png> <../images/trainDataSpectra.png>]
-<../images/robustPCAoutliers.png, id=63, 484.81125pt x 365.86688pt>
-File: ../images/robustPCAoutliers.png Graphic file (type png)
-<use ../images/robustPCAoutliers.png>
-Package pdftex.def Info: ../images/robustPCAoutliers.png  used on input line 183.
-(pdftex.def)             Requested size: 241.84842pt x 182.51428pt.
-<../images/robustPCAscores.png, id=64, 484.81125pt x 365.86688pt>
-File: ../images/robustPCAscores.png Graphic file (type png)
-<use ../images/robustPCAscores.png>
-Package pdftex.def Info: ../images/robustPCAscores.png  used on input line 189.
-(pdftex.def)             Requested size: 241.84842pt x 182.51428pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<../images/twoGroupScore.png, id=69, 484.05844pt x 364.36125pt>
-File: ../images/twoGroupScore.png Graphic file (type png)
-<use ../images/twoGroupScore.png>
-Package pdftex.def Info: ../images/twoGroupScore.png  used on input line 207.
-(pdftex.def)             Requested size: 241.84842pt x 182.04674pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[2 <../images/variances.png> <../images/screePlot.png> <../images/outliersClassic.png> <../images/ClassicPCAScores.png>]
-<../images/outlierPred.png, id=81, 484.81125pt x 365.86688pt>
-File: ../images/outlierPred.png Graphic file (type png)
-<use ../images/outlierPred.png>
-Package pdftex.def Info: ../images/outlierPred.png  used on input line 223.
-(pdftex.def)             Requested size: 241.84842pt x 182.51428pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<../images/validDataSpectra.png, id=83, 484.81125pt x 365.86688pt>
-File: ../images/validDataSpectra.png Graphic file (type png)
-<use ../images/validDataSpectra.png>
-Package pdftex.def Info: ../images/validDataSpectra.png  used on input line 238.
-(pdftex.def)             Requested size: 241.84842pt x 182.51428pt.
-<../images/predictedSpectra.png, id=84, 484.81125pt x 365.86688pt>
-File: ../images/predictedSpectra.png Graphic file (type png)
-<use ../images/predictedSpectra.png>
-Package pdftex.def Info: ../images/predictedSpectra.png  used on input line 244.
-(pdftex.def)             Requested size: 241.84842pt x 182.51428pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[3 <../images/robustPCAoutliers.png> <../images/robustPCAscores.png> <../images/twoGroupScore.png>]
-<../images/regularAndOutliers.png, id=93, 484.05844pt x 355.3275pt>
-File: ../images/regularAndOutliers.png Graphic file (type png)
-<use ../images/regularAndOutliers.png>
-Package pdftex.def Info: ../images/regularAndOutliers.png  used on input line 260.
-(pdftex.def)             Requested size: 241.84842pt x 177.53317pt.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[4 <../images/outlierPred.png> <../images/validDataSpectra.png> <../images/predictedSpectra.png>]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[5 <../images/regularAndOutliers.png>] (reportNew.aux)
-Package rerunfilecheck Info: File `reportNew.out' has not changed.
-(rerunfilecheck)             Checksum: F9F6D70242A1FE93E8B20578D5B6C72F;656.
-Package logreq Info: Writing requests to 'reportNew.run.xml'.
-\openout1 = `reportNew.run.xml'.
+] (report_cluster.aux)
+Package rerunfilecheck Info: File `report_cluster.out' has not changed.
+(rerunfilecheck)             Checksum: 6CD2253C2352EBE7BCFE2E364B798C1B;503.
+Package logreq Info: Writing requests to 'report_cluster.run.xml'.
+\openout1 = `report_cluster.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29874 strings out of 478834
- 556540 string characters out of 2845283
- 1246799 words of memory out of 3000000
- 47300 multiletter control sequences out of 15000+600000
- 418186 words of font info for 81 fonts, out of 8000000 for 9000
+ 29695 strings out of 478834
+ 552839 string characters out of 2845283
+ 1239067 words of memory out of 3000000
+ 47161 multiletter control sequences out of 15000+600000
+ 411200 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,12n,89p,827b,759s stack positions out of 5000i,500n,10000p,200000b,80000s
-<C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on reportNew.pdf (6 pages, 228559 bytes).
+ 84i,11n,89p,842b,759s stack positions out of 5000i,500n,10000p,200000b,80000s
+<C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb>
+Output written on report_cluster.pdf (2 pages, 60780 bytes).
 PDF statistics:
- 159 PDF objects out of 1000 (max. 8388607)
- 20 named destinations out of 1000 (max. 500000)
- 123 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 60 PDF objects out of 1000 (max. 8388607)
+ 7 named destinations out of 1000 (max. 500000)
+ 50 words of extra memory for PDF output out of 10000 (max. 10000000)
 
