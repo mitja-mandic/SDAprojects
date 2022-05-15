@@ -113,18 +113,229 @@ August\or September\or October\or November\or December\fi\ \number\year}
 For the second project for the course Statistical Data Analysis we are once again worikng with the
 dataset of spectral data of four cultivars of canteloupe melons. 
 
-Groups we work in this report with were also again chosen randomly, with 50 observations drawn from each of the groups. Below in INSERT REFERENCE we see a figure of 
-spectral plots of each of the groups. We see that groups 1, 2 and 4 differ only slightly in lower wavelength numbers with group 4 having more variability there,
+Groups we work in this report with were also again chosen randomly, with 50 observations drawn from each of the groups. In figure \ref{spectralByGroup} we see a figure of 
+spectral plots of each of the groups. We see in figures \ref{fig:group1_wavelength}, \ref{fig:group2_wavelength} and \ref{fig:group4_wavelength}
+that groups 1, 2 and 4 differ only slightly in lower wavelength numbers with group 4 having more variability there,
 but are quite similar in their behaviour in higher frequencies. Group 3 is the one that clearly stands out; 
-a part of it resembles the behaviour of other three groups, while some observations form a different pattern. 
+a part of it resembles the behaviour of other three groups, while some observations form a different pattern, visible in \ref{fig:group3_wavelength}. 
 
-We predict that this part of group three will form a 
+We predict that the differently behaving part of group three will form a 
 separate cluster. Another will possibly be formed by lower wavelengths of group 4 -- other observations seem to be too similar to form different clusters.
+
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}[b]{0.35\linewidth}
+      \centering
+      \includegraphics[width=\textwidth]{../images/project2/group1_wavelength.png}
+   \caption{Spectral plot of group 1}\label{fig:group1_wavelength}
+  \end{subfigure}%
+  %
+  \begin{subfigure}[b]{0.35\linewidth}
+      \centering
+   \includegraphics[width=\textwidth]{../images/project2/group2_wavelength.png}
+   \caption{Spectral plot of group 2}\label{fig:group2_wavelength}
+  \end{subfigure} \\%
+  \begin{subfigure}[b]{0.35\linewidth}
+    \centering
+    \includegraphics[width=\textwidth]{../images/project2/group3_wavelength.png}
+ \caption{Spectral plot of group 3}\label{fig:group3_wavelength}
+\end{subfigure}%
+%
+\begin{subfigure}[b]{0.35\linewidth}
+    \centering
+ \includegraphics[width=\textwidth]{../images/project2/group4_wavelength.png}
+ \caption{Spectral plot of group 4}\label{fig:group4_wavelength}
+\end{subfigure}%
+ \caption{Spectral plots by group}
+ \label{spectralByGroup}
+\end{figure}
+
 
 \section{K-medoids clustering}
 
+In the following sections we discuss results obtained by \textit{k-medoids} clustering method. We impose 2 up to 6 clusters to randomly drawn data.
+
+\subsection{Evaluating cluster quality}
+Without using the information we have on which group do individual observations belong to, we look into the quality of clusters obdatined. For this purpose we 
+use \textit{silhouette values} and plots, that help us determine how similar are objects in a given cluster.
+
+Starting off with two clusters already gives quite satisfying results. As seen in image \ref{fig:silhouette_pam2}, average silhouette widht for the whole dataset is 0.76,
+which indicates we have found strong structure in the data.
+Some further analysis reveals that silhouette widths for each clusters are 0.76 and 0.79. We also see that the first cluster contains much more elements than
+the second -- 182 compared to 18.
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width = 0.5\textwidth]{../images/project2/silhouette_pam2.png}
+    \caption{Silhouette plot for two clusters}
+    \label{fig:silhouette_pam2}
+  \end{center}
+\end{figure}
+
+We continue with the clustering and quickly notice a negative trend, with silhouette values never reaching the heights from those obtained with two clusters.
+Minimum is reached with four clusters, with the average silhouette width 0.29 and values for some individual observations falling below zero. More clusters also
+result in one large main cluster and a few smaller ones.
+
+These results can be summarised in figure \ref{fig:optNumber}, where we see a clear peak at $k=2.$
+\begin{figure}
+  \begin{center}
+    \includegraphics[width = 0.45\textwidth]{../images/project2/number_of_clusters.png}
+    \caption{Average silhouette widths with different numbers of clusters}
+    \label{fig:optNumber}
+  \end{center}
+\end{figure}
+
+\subsection{Comparison of clustering with known groups}
+
+Here we will also take into account the information we have on groups and how they relate to our clustering methods. 
+
+First we make a contingency table and right away notice an interesting trend -- most of observations fall in cluster 1. Additionally, making
+more than 4 clusters results in observations from group 4 being spread out across more clusters and a part of groups 2 and 3 fall in clusters 2 and 3 respectively.
+The main observation we can already make is that clusters do not follow groups of cultivars.
+
+Drawing cluster plots of PCA scores gives some additional insight into cluster structures. Plotting the results from two clusters in figure \ref{fig:clusPlot_pam2}
+we see one larger group and one smaller. With more clusters generated, the large datacloud on the left gets divided further into smaller clusters, most of which are overlapping significantly, as seen in
+\ref{fig:clusPlot_pam6}.
+
+\begin{figure}[h]
+  \begin{subfigure}[b]{0.5\linewidth}
+      \centering
+      \includegraphics[width=\textwidth]{../images/project2/clusPlot_pam2.png}
+   \caption{Cluster plot with $k=2$}\label{fig:clusPlot_pam2}
+  \end{subfigure}%
+  %
+  \begin{subfigure}[b]{0.5\linewidth}
+      \centering
+   \includegraphics[width=\textwidth]{../images/project2/clusPlot_pam6.png}
+   \caption{Cluster plot with $k=6$}\label{fig:clusPlot_pam6}
+  \end{subfigure}%
+ \caption{Cluster plots}
+\end{figure}
+
+Similar conclusion can be drawn by looking at spectral plots, coloured according to the clustering as seen in figure \ref{fig:spectraByClusters}. In figure \ref{fig:spectraByClusters_pam2}
+clearly see that with $k=2$ we get separation between main group and the differently behaving one. Adding more groups divides the main group further, but there is no clear
+structure.
+
+\begin{figure}[h!]
+  \begin{subfigure}[b]{0.33\linewidth}
+      \centering
+      \includegraphics[width=\textwidth]{../images/project2/spectraByClusters_pam2.png}
+   \caption{}\label{fig:spectraByClusters_pam2}
+  \end{subfigure}%
+  %
+  \begin{subfigure}[b]{0.33\linewidth}
+      \centering
+   \includegraphics[width=\textwidth]{../images/project2/spectraByClusters_pam4.png}
+   \caption{}\label{fig:spectraByClusters_pam4}
+  \end{subfigure}%
+  \begin{subfigure}[b]{0.33\linewidth}
+    \centering
+ \includegraphics[width=\textwidth]{../images/project2/spectraByClusters_pam6.png}
+ \caption{}\label{fig:spectraByClusters_pam6}
+\end{subfigure}%
+\caption{Spectral plots coloured according to clustering}
+\label{fig:spectraByClusters}
+\end{figure}
+
+Different insight into cluster contents can be provided by confusion matrices, with groups from data as rows and clusters as columns. 
+As we can see in figure \ref{fig:confMat}, we start of by one large cluster where all groups are present and small clearly separated part, consisting only of elements of group 3. Then we get some more separation from the large
+former cluster, until we just keep on dividing group 4 into more smaller clusters. 
+\begin{figure}[h!]
+  \begin{subfigure}[b]{0.33\linewidth}
+      \centering
+      \includegraphics[width=\textwidth]{../images/project2/confMat_2.png}
+   \caption{}\label{fig:confMat_2}
+  \end{subfigure}%
+  %
+  \begin{subfigure}[b]{0.33\linewidth}
+      \centering
+   \includegraphics[width=\textwidth]{../images/project2/confMat_4.png}
+   \caption{}\label{fig:confMat_4}
+  \end{subfigure}%
+  \begin{subfigure}[b]{0.33\linewidth}
+    \centering
+ \includegraphics[width=\textwidth]{../images/project2/confMat_6.png}
+ \caption{}\label{fig:confMat_6}
+\end{subfigure}%
+\caption{Confusion matrices for $k=2$, $k=4$ and $k=6$.}
+\label{fig:confMat}
+\end{figure}
+
+Based on all results above we conclude that the optimal number of clusters is $k_{opt} = 2$ .
+
 \section{Hierarchical clustering}
 
+We continue our research by performing agglomerative hierarchical clustering with average and complete linkage. We consider hard clustering with $k_{opt}$ 
+and results are exactly equal to those obtained by k-medoids clustering -- Rand index of the clusterings is 1.
+We can attribute this to the very clear group structure, with one being rather far from another.
+
+Looking at dendrograms of both clustering methods, we notice a very large jump in height when going from 3 to 2 clusters, and much smaller ones 
+when the number of clusters is larger.
+
+\begin{figure}[h]
+  \begin{subfigure}[b]{0.5\linewidth}
+      \centering
+      \includegraphics[width=\textwidth]{../images/project2/avgDend.png}
+   \caption{Dendrogram of average linkage clustering}\label{fig:avgDend}
+  \end{subfigure}%
+  %
+  \begin{subfigure}[b]{0.5\linewidth}
+      \centering
+   \includegraphics[width=\textwidth]{../images/project2/compDend.png}
+   \caption{Dendrogram of complete linkage clustering}\label{fig:cmpDend}
+  \end{subfigure}%
+ \caption{Dendrograms of hierarchical clusterings}
+\end{figure}
+
+Further, taking complete linkage into account, we investigate a third group that seems to be appearing (visible on the right of dendrogram). Hard clustering with
+$k = 3$ results in a large drop of average silhouette value, which in this case equals 0.43. Plotting the cluster plot reveals that the new cluster contains
+mostly data from the 4th group, however it almost completely overlaps with the second cluster. Calculating the contingency table for this clustering we find out
+that the cluster plot decieves us a bit -- only 14 members of the 4th group are in a separate clusters while the others still remain in the large first cluster.
+\begin{figure}[h]
+  \begin{subfigure}[b]{0.5\linewidth}
+      \centering
+      \includegraphics[width=\textwidth]{../images/project2/clusPlot_cmt3.png}
+      \label{fig:clusPlot_cmt3}
+      \caption{Cluster plot of hierarchical complete linkage clustering with 3 clusters}
+  \end{subfigure}%
+  %
+  \begin{subfigure}[b]{0.5\linewidth}
+      \centering
+   \includegraphics[width=\textwidth]{../images/project2/confMat_comp3.png}
+   \caption{Confusion matrix of complete linkage clustering with $k=3$}\label{fig:confMat_comp3}
+  \end{subfigure}%
+ \caption{Analysis of complete linkage clustering with $k=3$}
+\end{figure}
+
+Finally, we compare k-medoids and hierarchical clusterings. In table \ref{tab:rand} we see that in most cases clusterings are quite similar, differing the most
+when it comes to splitting the data into four clusters. In all cases except for 6 clusters, k-medoids is more similar
+to complete linkage clustering than the two hierarchical methods.
+%\begin{center}
+  \begin{table}[h]
+    \centering
+  \begin{tabular}{ |c|c|c|c| } 
+   \hline
+   & complete, average  & pam, average & pam, complete \\
+   \hline 
+   2 & 1 & 1 & 1 \\ 
+   3 & 0.881809 & 0.8741206 &0.9555276 \\ 
+   4 & 0.7514573 &0.7020101 & 0.7801005 \\
+   5 & 0.829598 &0.7288442 & 0.8322111 \\
+   6 & 0.9221608 & 0.7720101& 0.8433166 \\
+   \hline
+  \end{tabular}
+  \caption{Table of Rand indices}
+  \label{tab:rand}
+\end{table}
+%\end{center}
+
 \section{Conclusion}
+
+We conclude that setting the number of clusters to two, both hierarchical and k-medoids clustering return same results, so either method is appropriate in this case.
+This is true because of the data structure, which is clearly divisible in two groups. Splitting the clusters lowers the silhouette values in both cases, which 
+are somewhat higher in hierarchical case as compared to k-medoids (they still fall well below 0.5 mark). Comparing all clustering methods also reveals that they do not
+differ a lot, with pairwise Rand indices always staying above 0.7.
+
+Clusters do not align with known group structure from data in neither of the clustering methods.
 
 \end{document}

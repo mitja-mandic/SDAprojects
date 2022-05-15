@@ -8,6 +8,7 @@ library(factoextra)
 library(ggfortify)
 library(pheatmap)
 library(cluster)
+library(fossil)
 
 load("Melon.rdata")
 set.seed(0875362)
@@ -113,27 +114,35 @@ plot(melon.agnes.complete, which.plots=2)
 plot(melon.agnes.complete.std, which.plots=2)
 
 melon.agnes.complete.dg <- as.dendrogram(melon.agnes.complete)
-plot(melon.agnes.complete.dg, leaflab="none")
-fviz_dend(melon.agnes.complete.dg, k=6, k_colors=colors.cl, show_labels = F, 
-          main = "Dendrogram of complete linkage clustering with 6 clusters")
+plot(melon.agnes.complete.dg, leaflab="none", main = "Dendrogram of complete linkage clustering")
+
+fviz_dend(melon.agnes.complete.dg, k=3, k_colors=colors.cl, show_labels = F, 
+          main = "Dendrogram of complete linkage clustering with 3 clusters")
 
 melon.agnes.avg.dg <- as.dendrogram(melon.agnes.avg)
-fviz_dend(melon.agnes.avg, k=6, k_colors = colors.cl, show_labels = F,
-          main = "Dendrogram of average linkage clustering with 6 clusters")
+plot(melon.agnes.avg.dg, leaflab="none", main = "Dendrogram of average linkage clustering")
+fviz_dend(melon.agnes.avg, k=3, k_colors = colors.cl, show_labels = F,
+          main = "Dendrogram of average linkage clustering with 3 clusters")
 
 
 agnes.avg_2 <- cutree(melon.agnes.avg, k=2)
 agnes.cmt_2 <- cutree(melon.agnes.complete, k=2)
 
+agnes.cmt_3 <- cutree(melon.agnes.complete, k=3)
+
 #Hierarchical clustering at k=2 and k-medoids at k=2 give the same results.
 setequal(agnes.avg_2, agnes.cmt_2)
 setequal(agnes.avg_2, melon.pam2[["clustering"]])
 
-matplot(t(X), col = factor(cutree(melon.agnes.avg, k=2)), type="l", lty=1, 
+matplot(t(X), col = factor(agnes.avg_2), type="l", lty=1, 
         main="Spectral plot colored according to average linkage clustering with k = 2", ylab = "", xlab = "Wavelength")
 
-matplot(t(X), col = factor(cutree(melon.agnes.complete, k=2)), type="l", lty=1,
+matplot(t(X), col = factor(agnes.cmt_2), type="l", lty=1,
         main="Spectral plot colored according to complete linkage clustering with k = 2", ylab = "", xlab = "Wavelength")
+
+matplot(t(X), col = factor(agnes.cmt_3), type="l", lty=1,
+        main="Spectral plot colored according to complete linkage clustering with k = 3", ylab = "", xlab = "Wavelength")
+
 
 matplot(t(X), col = factor(colors.cl), type="l", lty=1,
         main="Spectral plot colored according to complete linkage clustering with k = 6", ylab = "", xlab = "Wavelength")
@@ -141,7 +150,52 @@ matplot(t(X), col = factor(colors.cl), type="l", lty=1,
 matplot(t(X), col = factor(colors.cl), type="l", lty=1, 
         main="Spectral plot colored according to average linkage clustering with k = 6", ylab = "", xlab = "Wavelength")
 
+pheatmap(X[order(agnes.cmt_3),], legend = TRUE, cluster_rows = F, cluster_cols = F, main = "Heatmap agnes cmt 3",
+         show_rownames = F, show_colnames = F,color=COL2("BrBG"))
+pheatmap(X[order(agnes.cmt_2),], legend = TRUE, cluster_rows = F, cluster_cols = F, main = "Heatmap agnes cmt 2",
+         show_rownames = F, show_colnames = F,color=COL2("BrBG"))
+
 
 table(cutree(melon.agnes.complete, k=6), group)
 
+heatmap(data.matrix(X), Rowv=melon.agnes.avg.dg, Colv=NULL,
+        col=COL2("BrBG"), revC=TRUE, scale="column",
+        cexCol=0.8, labRow="")
 
+rand.index(cutree(melon.agnes.avg, k=6),melon.pam6[["clustering"]])
+
+
+l <- 3
+plot(silhouette(cutree(melon.agnes.avg, k=l), daisy(X, stand=T)),
+     col=colors.cl[1:l], main="Melon - Agnes Avg")
+
+plot(silhouette(cutree(melon.agnes.complete, k=l), daisy(X, stand=T)),
+     col=colors.cl[1:l], main="Melon - Agnes Cmt")
+#Higher silhouette values for agglomerative clustering
+
+table(agnes.cmt_3, group)
+corrplot(table(group, agnes.cmt_3), is.corr=F, method="color",
+         tl.srt=0, tl.col="black", addgrid.col="grey", addCoef.col="grey",
+         number.cex=2, cl.pos="n", col=COL1("YlGn"))
+
+
+fviz_cluster(list(data=X, cluster=cutree(melon.agnes.avg, k=4)),
+             geom="point", ellipse.type="convex", palette=colors.cl[1:3])
+
+f_clust_pam <- fviz_cluster(list(data=X, cluster=cutree(melon.agnes.complete, k=3)), geom="point", ellipse.type="convex",
+                            palette=colors.cl, ellipse.border.remove = T, main = "Cluster plot of complete linkage clustering, k = 3")
+f_clust_pam[["layers"]][[1]][["data"]][["cluster"]] <- as.factor(group)
+f_clust_pam[["layers"]][[2]][["data"]][["cluster"]] <- as.factor(cutree(melon.agnes.complete, k=3))
+f_clust_pam +
+  scale_colour_manual(values=colors.gr)
+
+for (i in 2:6){
+  print("comp, avg")
+  print(rand.index(cutree(melon.agnes.complete, k=i),cutree(melon.agnes.avg, k=i)))
+  print("comp, pam")
+  print(rand.index(cutree(melon.agnes.complete, k=i), pam(X, k=i)[["clustering"]]    ))
+  print("avg, pam")
+  print(rand.index(cutree(melon.agnes.avg, k=i), pam(X, k=i)[["clustering"]]    ))
+}
+
+#TODO: Think about conclusion and new silhouette values
