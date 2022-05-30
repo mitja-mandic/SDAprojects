@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.8.28)  15 MAY 2022 12:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.8.28)  19 MAY 2022 09:36
 entering extended mode
 **"c:/Users/Mitja/Documents/Faks/year 1/Statistical Data Analysis/SDAprojects/reports/project 2/report_cluster.tex"
 (c:/Users/Mitja/Documents/Faks/year 1/Statistical Data Analysis/SDAprojects/reports/project 2/report_cluster.tex
@@ -876,22 +876,22 @@ Non-PDF special ignored!
 <../../Images//../images/project2/group1_wavelength.png, id=47, 483.30562pt x 362.85562pt>
 File: ../../Images//../images/project2/group1_wavelength.png Graphic file (type png)
 <use ../../Images//../images/project2/group1_wavelength.png>
-Package pdftex.def Info: ../../Images//../images/project2/group1_wavelength.png  used on input line 129.
+Package pdftex.def Info: ../../Images//../images/project2/group1_wavelength.png  used on input line 130.
 (pdftex.def)             Requested size: 169.29684pt x 127.10103pt.
 <../../Images//../images/project2/group2_wavelength.png, id=48, 483.30562pt x 362.85562pt>
 File: ../../Images//../images/project2/group2_wavelength.png Graphic file (type png)
 <use ../../Images//../images/project2/group2_wavelength.png>
-Package pdftex.def Info: ../../Images//../images/project2/group2_wavelength.png  used on input line 135.
+Package pdftex.def Info: ../../Images//../images/project2/group2_wavelength.png  used on input line 136.
 (pdftex.def)             Requested size: 169.29684pt x 127.10103pt.
 <../../Images//../images/project2/group3_wavelength.png, id=49, 483.30562pt x 362.85562pt>
 File: ../../Images//../images/project2/group3_wavelength.png Graphic file (type png)
 <use ../../Images//../images/project2/group3_wavelength.png>
-Package pdftex.def Info: ../../Images//../images/project2/group3_wavelength.png  used on input line 140.
+Package pdftex.def Info: ../../Images//../images/project2/group3_wavelength.png  used on input line 141.
 (pdftex.def)             Requested size: 169.29684pt x 127.10103pt.
 <../../Images//../images/project2/group4_wavelength.png, id=50, 483.30562pt x 362.85562pt>
 File: ../../Images//../images/project2/group4_wavelength.png Graphic file (type png)
 <use ../../Images//../images/project2/group4_wavelength.png>
-Package pdftex.def Info: ../../Images//../images/project2/group4_wavelength.png  used on input line 146.
+Package pdftex.def Info: ../../Images//../images/project2/group4_wavelength.png  used on input line 147.
 (pdftex.def)             Requested size: 169.29684pt x 127.10103pt.
 
 
@@ -904,31 +904,49 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.162 S
+l.163 S
        tarting off with two clusters already gives quite satisfying results.... [1
 
  <../../Images//../images/project2/group1_wavelength.png> <../../Images//../images/project2/group2_wavelength.png> <../../Images//../images/project2/group3_wavelength.png> <../../Images//../images/project2/group4_wavelength.png>]
 <../../Images//../images/project2/silhouette_pam2.png, id=64, 424.58624pt x 306.39468pt>
 File: ../../Images//../images/project2/silhouette_pam2.png Graphic file (type png)
 <use ../../Images//../images/project2/silhouette_pam2.png>
-Package pdftex.def Info: ../../Images//../images/project2/silhouette_pam2.png  used on input line 169.
+Package pdftex.def Info: ../../Images//../images/project2/silhouette_pam2.png  used on input line 170.
 (pdftex.def)             Requested size: 241.84842pt x 174.52522pt.
 <../../Images//../images/project2/number_of_clusters.png, id=66, 424.58624pt x 306.39468pt>
 File: ../../Images//../images/project2/number_of_clusters.png Graphic file (type png)
 <use ../../Images//../images/project2/number_of_clusters.png>
-Package pdftex.def Info: ../../Images//../images/project2/number_of_clusters.png  used on input line 182.
+Package pdftex.def Info: ../../Images//../images/project2/number_of_clusters.png  used on input line 183.
 (pdftex.def)             Requested size: 217.6621pt x 157.07271pt.
-<../../Images//../images/project2/clusPlot_pam2.png, id=69, 424.58624pt x 306.39468pt>
+<../../Images//../images/project2/confMat_2.png, id=70, 424.58624pt x 300.3722pt>
+File: ../../Images//../images/project2/confMat_2.png Graphic file (type png)
+<use ../../Images//../images/project2/confMat_2.png>
+Package pdftex.def Info: ../../Images//../images/project2/confMat_2.png  used on input line 200.
+(pdftex.def)             Requested size: 159.62083pt x 112.92345pt.
+<../../Images//../images/project2/confMat_4.png, id=71, 424.58624pt x 300.3722pt>
+File: ../../Images//../images/project2/confMat_4.png Graphic file (type png)
+<use ../../Images//../images/project2/confMat_4.png>
+Package pdftex.def Info: ../../Images//../images/project2/confMat_4.png  used on input line 206.
+(pdftex.def)             Requested size: 159.62083pt x 112.92345pt.
+<../../Images//../images/project2/confMat_6.png, id=72, 424.58624pt x 300.3722pt>
+File: ../../Images//../images/project2/confMat_6.png Graphic file (type png)
+<use ../../Images//../images/project2/confMat_6.png>
+Package pdftex.def Info: ../../Images//../images/project2/confMat_6.png  used on input line 211.
+(pdftex.def)             Requested size: 159.62083pt x 112.92345pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<../../Images//../images/project2/clusPlot_pam2.png, id=75, 424.58624pt x 306.39468pt>
 File: ../../Images//../images/project2/clusPlot_pam2.png Graphic file (type png)
 <use ../../Images//../images/project2/clusPlot_pam2.png>
-Package pdftex.def Info: ../../Images//../images/project2/clusPlot_pam2.png  used on input line 203.
+Package pdftex.def Info: ../../Images//../images/project2/clusPlot_pam2.png  used on input line 225.
 (pdftex.def)             Requested size: 241.84842pt x 174.52522pt.
-<../../Images//../images/project2/clusPlot_pam6.png, id=70, 424.58624pt x 306.39468pt>
+<../../Images//../images/project2/clusPlot_pam6.png, id=76, 424.58624pt x 306.39468pt>
 File: ../../Images//../images/project2/clusPlot_pam6.png Graphic file (type png)
 <use ../../Images//../images/project2/clusPlot_pam6.png>
-Package pdftex.def Info: ../../Images//../images/project2/clusPlot_pam6.png  used on input line 209.
+Package pdftex.def Info: ../../Images//../images/project2/clusPlot_pam6.png  used on input line 231.
 (pdftex.def)             Requested size: 241.84842pt x 174.52522pt.
-
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -940,66 +958,59 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [2 <../../Images//../images/project2/silhouette_pam2.png>]
-<../../Images//../images/project2/spectraByClusters_pam2.png, id=82, 424.58624pt x 306.39468pt>
+<../../Images//../images/project2/spectraByClusters_pam2.png, id=89, 424.58624pt x 306.39468pt>
 File: ../../Images//../images/project2/spectraByClusters_pam2.png Graphic file (type png)
 <use ../../Images//../images/project2/spectraByClusters_pam2.png>
-Package pdftex.def Info: ../../Images//../images/project2/spectraByClusters_pam2.png  used on input line 222.
+Package pdftex.def Info: ../../Images//../images/project2/spectraByClusters_pam2.png  used on input line 244.
 (pdftex.def)             Requested size: 159.62083pt x 115.18758pt.
-<../../Images//../images/project2/spectraByClusters_pam4.png, id=83, 424.58624pt x 306.39468pt>
+<../../Images//../images/project2/spectraByClusters_pam4.png, id=90, 424.58624pt x 306.39468pt>
 File: ../../Images//../images/project2/spectraByClusters_pam4.png Graphic file (type png)
 <use ../../Images//../images/project2/spectraByClusters_pam4.png>
-Package pdftex.def Info: ../../Images//../images/project2/spectraByClusters_pam4.png  used on input line 228.
+Package pdftex.def Info: ../../Images//../images/project2/spectraByClusters_pam4.png  used on input line 250.
 (pdftex.def)             Requested size: 159.62083pt x 115.18758pt.
-<../../Images//../images/project2/spectraByClusters_pam6.png, id=84, 424.58624pt x 306.39468pt>
+<../../Images//../images/project2/spectraByClusters_pam6.png, id=91, 424.58624pt x 306.39468pt>
 File: ../../Images//../images/project2/spectraByClusters_pam6.png Graphic file (type png)
 <use ../../Images//../images/project2/spectraByClusters_pam6.png>
-Package pdftex.def Info: ../../Images//../images/project2/spectraByClusters_pam6.png  used on input line 233.
+Package pdftex.def Info: ../../Images//../images/project2/spectraByClusters_pam6.png  used on input line 255.
 (pdftex.def)             Requested size: 159.62083pt x 115.18758pt.
-<../../Images//../images/project2/confMat_2.png, id=86, 424.58624pt x 300.3722pt>
-File: ../../Images//../images/project2/confMat_2.png Graphic file (type png)
-<use ../../Images//../images/project2/confMat_2.png>
-Package pdftex.def Info: ../../Images//../images/project2/confMat_2.png  used on input line 246.
-(pdftex.def)             Requested size: 159.62083pt x 112.92345pt.
-<../../Images//../images/project2/confMat_4.png, id=87, 424.58624pt x 300.3722pt>
-File: ../../Images//../images/project2/confMat_4.png Graphic file (type png)
-<use ../../Images//../images/project2/confMat_4.png>
-Package pdftex.def Info: ../../Images//../images/project2/confMat_4.png  used on input line 252.
-(pdftex.def)             Requested size: 159.62083pt x 112.92345pt.
-<../../Images//../images/project2/confMat_6.png, id=88, 424.58624pt x 300.3722pt>
-File: ../../Images//../images/project2/confMat_6.png Graphic file (type png)
-<use ../../Images//../images/project2/confMat_6.png>
-Package pdftex.def Info: ../../Images//../images/project2/confMat_6.png  used on input line 257.
-(pdftex.def)             Requested size: 159.62083pt x 112.92345pt.
 
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[3 <../../Images//../images/project2/number_of_clusters.png> <../../Images//../images/project2/clusPlot_pam2.png> <../../Images//../images/project2/clusPlot_pam6.png> <../../Images//../images/project2/spectraByClusters_pam2.png> <../../Images//../images/project2/spectraByClusters_pam4.png> <../../Images//../images/project2/spectraByClusters_pam6.png>]
-<../../Images//../images/project2/avgDend.png, id=102, 482.55281pt x 352.31625pt>
+<../../Images//../images/project2/avgDend.png, id=92, 482.55281pt x 352.31625pt>
 File: ../../Images//../images/project2/avgDend.png Graphic file (type png)
 <use ../../Images//../images/project2/avgDend.png>
-Package pdftex.def Info: ../../Images//../images/project2/avgDend.png  used on input line 278.
+Package pdftex.def Info: ../../Images//../images/project2/avgDend.png  used on input line 277.
 (pdftex.def)             Requested size: 241.84842pt x 176.57701pt.
-<../../Images//../images/project2/compDend.png, id=103, 482.55281pt x 352.31625pt>
+<../../Images//../images/project2/compDend.png, id=93, 482.55281pt x 352.31625pt>
 File: ../../Images//../images/project2/compDend.png Graphic file (type png)
 <use ../../Images//../images/project2/compDend.png>
-Package pdftex.def Info: ../../Images//../images/project2/compDend.png  used on input line 284.
+Package pdftex.def Info: ../../Images//../images/project2/compDend.png  used on input line 283.
 (pdftex.def)             Requested size: 241.84842pt x 176.57701pt.
-<../../Images//../images/project2/clusPlot_cmt3.png, id=104, 482.55281pt x 352.31625pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<../../Images//../images/project2/clusPlot_cmt3.png, id=95, 482.55281pt x 352.31625pt>
 File: ../../Images//../images/project2/clusPlot_cmt3.png Graphic file (type png)
 <use ../../Images//../images/project2/clusPlot_cmt3.png>
-Package pdftex.def Info: ../../Images//../images/project2/clusPlot_cmt3.png  used on input line 297.
+Package pdftex.def Info: ../../Images//../images/project2/clusPlot_cmt3.png  used on input line 296.
 (pdftex.def)             Requested size: 241.84842pt x 176.57701pt.
-<../../Images//../images/project2/confMat_comp3.png, id=105, 482.55281pt x 352.31625pt>
+<../../Images//../images/project2/confMat_comp3.png, id=96, 482.55281pt x 352.31625pt>
 File: ../../Images//../images/project2/confMat_comp3.png Graphic file (type png)
 <use ../../Images//../images/project2/confMat_comp3.png>
-Package pdftex.def Info: ../../Images//../images/project2/confMat_comp3.png  used on input line 304.
+Package pdftex.def Info: ../../Images//../images/project2/confMat_comp3.png  used on input line 303.
 (pdftex.def)             Requested size: 241.84842pt x 176.57701pt.
 
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[3 <../../Images//../images/project2/number_of_clusters.png> <../../Images//../images/project2/confMat_2.png> <../../Images//../images/project2/confMat_4.png (PNG copy)> <../../Images//../images/project2/confMat_6.png>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1007,7 +1018,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[4 <../../Images//../images/project2/confMat_2.png> <../../Images//../images/project2/confMat_4.png (PNG copy)> <../../Images//../images/project2/confMat_6.png> <../../Images//../images/project2/avgDend.png> <../../Images//../images/project2/compDend.png>]
+[4 <../../Images//../images/project2/clusPlot_pam2.png> <../../Images//../images/project2/clusPlot_pam6.png> <../../Images//../images/project2/spectraByClusters_pam2.png> <../../Images//../images/project2/spectraByClusters_pam4.png> <../../Images//../images/project2/spectraByClusters_pam6.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1015,7 +1026,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[5 <../../Images//../images/project2/clusPlot_cmt3.png> <../../Images//../images/project2/confMat_comp3.png>] (report_cluster.aux)
+[5 <../../Images//../images/project2/avgDend.png> <../../Images//../images/project2/compDend.png> <../../Images//../images/project2/clusPlot_cmt3.png> <../../Images//../images/project2/confMat_comp3.png>] (report_cluster.aux)
 Package rerunfilecheck Info: File `report_cluster.out' has not changed.
 (rerunfilecheck)             Checksum: 5ED40B1A5ADC2FA237DC6B500DA67636;978.
 Package logreq Info: Writing requests to 'report_cluster.run.xml'.
@@ -1025,15 +1036,15 @@ Package logreq Info: Writing requests to 'report_cluster.run.xml'.
 Here is how much of TeX's memory you used:
  29958 strings out of 478834
  562019 string characters out of 2845283
- 1247136 words of memory out of 3000000
+ 1252136 words of memory out of 3000000
  47371 multiletter control sequences out of 15000+600000
  419925 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,12n,89p,842b,759s stack positions out of 5000i,500n,10000p,200000b,80000s
 <C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/Mitja/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on report_cluster.pdf (6 pages, 261483 bytes).
+Output written on report_cluster.pdf (6 pages, 262963 bytes).
 PDF statistics:
- 173 PDF objects out of 1000 (max. 8388607)
+ 176 PDF objects out of 1000 (max. 8388607)
  22 named destinations out of 1000 (max. 500000)
  156 words of extra memory for PDF output out of 10000 (max. 10000000)
 

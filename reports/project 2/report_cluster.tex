@@ -120,7 +120,8 @@ but are quite similar in their behaviour in higher frequencies. Group 3 is the o
 a part of it resembles the behaviour of other three groups, while some observations form a different pattern, visible in \ref{fig:group3_wavelength}. 
 
 We predict that the differently behaving part of group three will form a 
-separate cluster. Another will possibly be formed by lower wavelengths of group 4 -- other observations seem to be too similar to form different clusters.
+separate cluster. Another will possibly be formed by lower wavelengths of group 4 -- other observations seem to be too similar to form different clusters. Similar conclusions can be drawn
+from the heatmap of the spectra and we therefore not include it here in the name of brevity.
 
 \begin{figure}[h]
   \centering
@@ -157,11 +158,11 @@ In the following sections we discuss results obtained by \textit{k-medoids} clus
 
 \subsection{Evaluating cluster quality}
 Without using the information we have on which group do individual observations belong to, we look into the quality of clusters obdatined. For this purpose we 
-use \textit{silhouette values} and plots, that help us determine how similar are objects in a given cluster.
+use \textit{silhouette values and plots}, that help us determine how similar are objects in a given cluster.
 
-Starting off with two clusters already gives quite satisfying results. As seen in image \ref{fig:silhouette_pam2}, average silhouette widht for the whole dataset is 0.76,
+Starting off with two clusters already gives quite satisfying results. As seen in image \ref{fig:silhouette_pam2}, average silhouette width for the whole dataset is 0.76,
 which indicates we have found strong structure in the data.
-Some further analysis reveals that silhouette widths for each clusters are 0.76 and 0.79. We also see that the first cluster contains much more elements than
+Some further analysis reveals that silhouette widths for each of the clusters are 0.76 and 0.79, respectively. We also see that the first cluster contains much more elements than
 the second -- 182 compared to 18.
 
 \begin{figure}[h]
@@ -187,14 +188,35 @@ These results can be summarised in figure \ref{fig:optNumber}, where we see a cl
 
 \subsection{Comparison of clustering with known groups}
 
-Here we will also take into account the information we have on groups and how they relate to our clustering methods. 
+Now we will also take into account the information we have on groups and investigate how they relate to our clustering methods. 
 
-First we make a contingency table and right away notice an interesting trend -- most of observations fall in cluster 1. Additionally, making
-more than 4 clusters results in observations from group 4 being spread out across more clusters and a part of groups 2 and 3 fall in clusters 2 and 3 respectively.
-The main observation we can already make is that clusters do not follow groups of cultivars.
+Confusion matrix for two clusters reveals, that the small second cluster completely consists of observations from group 3 (figure \ref{fig:confMat_2}) -- as predicted in the introduction. Additionally, making
+more than 4 clusters results in observations from group 4 being spread out across more clusters and a part of groups 2 and 3 fall in clusters 2 and 3 respectively, as depicted in figures \ref{fig:confMat_4} and \ref{fig:confMat_6}.
+We can already see the trend where clustering does not follow the underlying grouping.
+
+\begin{figure}[h!]
+  \begin{subfigure}[b]{0.33\linewidth}
+      \centering
+      \includegraphics[width=\textwidth]{../images/project2/confMat_2.png}
+   \caption{}\label{fig:confMat_2}
+  \end{subfigure}%
+  %
+  \begin{subfigure}[b]{0.33\linewidth}
+      \centering
+   \includegraphics[width=\textwidth]{../images/project2/confMat_4.png}
+   \caption{}\label{fig:confMat_4}
+  \end{subfigure}%
+  \begin{subfigure}[b]{0.33\linewidth}
+    \centering
+ \includegraphics[width=\textwidth]{../images/project2/confMat_6.png}
+ \caption{}\label{fig:confMat_6}
+\end{subfigure}%
+\caption{Confusion matrices for $k=2$, $k=4$ and $k=6$.}
+\label{fig:confMat}
+\end{figure}
 
 Drawing cluster plots of PCA scores gives some additional insight into cluster structures. Plotting the results from two clusters in figure \ref{fig:clusPlot_pam2}
-we see one larger group and one smaller. With more clusters generated, the large datacloud on the left gets divided further into smaller clusters, most of which are overlapping significantly, as seen in
+we see one larger group and one smaller, far away from the other. With more clusters generated, the large datacloud on the left gets divided further into smaller clusters, most of which are overlapping significantly, as seen in
 \ref{fig:clusPlot_pam6}.
 
 \begin{figure}[h]
@@ -237,37 +259,14 @@ structure.
 \label{fig:spectraByClusters}
 \end{figure}
 
-Different insight into cluster contents can be provided by confusion matrices, with groups from data as rows and clusters as columns. 
-As we can see in figure \ref{fig:confMat}, we start of by one large cluster where all groups are present and small clearly separated part, consisting only of elements of group 3. Then we get some more separation from the large
-former cluster, until we just keep on dividing group 4 into more smaller clusters. 
-\begin{figure}[h!]
-  \begin{subfigure}[b]{0.33\linewidth}
-      \centering
-      \includegraphics[width=\textwidth]{../images/project2/confMat_2.png}
-   \caption{}\label{fig:confMat_2}
-  \end{subfigure}%
-  %
-  \begin{subfigure}[b]{0.33\linewidth}
-      \centering
-   \includegraphics[width=\textwidth]{../images/project2/confMat_4.png}
-   \caption{}\label{fig:confMat_4}
-  \end{subfigure}%
-  \begin{subfigure}[b]{0.33\linewidth}
-    \centering
- \includegraphics[width=\textwidth]{../images/project2/confMat_6.png}
- \caption{}\label{fig:confMat_6}
-\end{subfigure}%
-\caption{Confusion matrices for $k=2$, $k=4$ and $k=6$.}
-\label{fig:confMat}
-\end{figure}
-
-Based on all results above we conclude that the optimal number of clusters is $k_{opt} = 2$ .
+Other ways of analysing, such as heatmaps and mosaic plots do not reveal any new information on the clustering, so we do not include them in the report.
+Based on all results above we conclude that the optimal number of clusters is $k_{opt} = 2$.
 
 \section{Hierarchical clustering}
 
-We continue our research by performing agglomerative hierarchical clustering with average and complete linkage. We consider hard clustering with $k_{opt}$ 
-and results are exactly equal to those obtained by k-medoids clustering -- Rand index of the clusterings is 1.
-We can attribute this to the very clear group structure, with one being rather far from another.
+We continue our research by performing agglomerative hierarchical clustering with average and complete linkage. When considering hard clustering with $k_{opt}$ 
+results are exactly equal to those obtained by k-medoids clustering -- Rand index of the clusterings is 1.
+We can attribute this to the very clear structure in the data, with one group being rather far from another.
 
 Looking at dendrograms of both clustering methods, we notice a very large jump in height when going from 3 to 2 clusters, and much smaller ones 
 when the number of clusters is larger.
@@ -287,7 +286,7 @@ when the number of clusters is larger.
  \caption{Dendrograms of hierarchical clusterings}
 \end{figure}
 
-Further, taking complete linkage into account, we investigate a third group that seems to be appearing (visible on the right of dendrogram). Hard clustering with
+Further, taking complete linkage into account, we investigate a third group that seems to be appearing (visible on the right of dendrogram \ref{fig:cmpDend}). Hard clustering with
 $k = 3$ results in a large drop of average silhouette value, which in this case equals 0.43. Plotting the cluster plot reveals that the new cluster contains
 mostly data from the 4th group, however it almost completely overlaps with the second cluster. Calculating the contingency table for this clustering we find out
 that the cluster plot decieves us a bit -- only 14 members of the 4th group are in a separate clusters while the others still remain in the large first cluster.
@@ -313,9 +312,9 @@ to complete linkage clustering than the two hierarchical methods.
 %\begin{center}
   \begin{table}[h]
     \centering
-  \begin{tabular}{ |c|c|c|c| } 
+  \begin{tabular}{ |c||c|c|c| } 
    \hline
-   & complete, average  & pam, average & pam, complete \\
+   $k$ & complete, average  & k-med, average & k-med, complete \\
    \hline 
    2 & 1 & 1 & 1 \\ 
    3 & 0.881809 & 0.8741206 &0.9555276 \\ 
@@ -336,6 +335,7 @@ This is true because of the data structure, which is clearly divisible in two gr
 are somewhat higher in hierarchical case as compared to k-medoids (they still fall well below 0.5 mark). Comparing all clustering methods also reveals that they do not
 differ a lot, with pairwise Rand indices always staying above 0.7.
 
-Clusters do not align with known group structure from data in neither of the clustering methods.
+While clusters do not align perfectly with the groups from data, new clusters (when $k$ is less or equal than 4) consist of observations of separate groups -- but the majority of observations still remain in 
+the first, largest cluster. Increasing the number of clusters to five or six results in splitting group 4 into smaller clusters, with other clusters remaining intact.
 
 \end{document}

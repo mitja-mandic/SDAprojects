@@ -197,5 +197,3 @@ for (i in 2:6){
   print("avg, pam")
   print(rand.index(cutree(melon.agnes.avg, k=i), pam(X, k=i)[["clustering"]]    ))
 }
-
-#TODO: Think about conclusion and new silhouette values
