@@ -1,0 +1,16 @@
+Coefficients:
+                          Estimate Std. Error t value Pr(>|t|)    
+(Intercept)              3.414e+00  5.252e+00   0.650   0.5160    
+euro_standard4           2.361e-03  4.482e-01   0.005   0.9958    
+euro_standard5          -3.469e+00  5.120e-01  -6.776 3.58e-11 ***
+euro_standard6          -2.253e+00  1.001e+00  -2.250   0.0249 *  
+transmission_typeManual -1.199e+00  2.981e-01  -4.020 6.73e-05 ***
+engine_capacity         -6.180e-04  2.962e-04  -2.087   0.0374 *  
+fuel_typeHybrid         -1.581e+01  7.172e-01 -22.041  < 2e-16 ***
+fuel_typePetrol         -1.673e+01  6.301e-01 -26.557  < 2e-16 ***
+urban_metric             5.363e-01  8.908e-01   0.602   0.5475    
+extra_urban_metric       2.673e+00  1.504e+00   1.778   0.0761 .  
+combined_metric          2.173e+01  2.386e+00   9.105  < 2e-16 ***
+noise_level              1.281e-01  7.590e-02   1.687   0.0922 .  
+co_emissions            -3.631e-04  7.678e-04  -0.473   0.6364    
+nox_emissions            8.991e-03  2.244e-03   4.007 7.12e-05 ***
