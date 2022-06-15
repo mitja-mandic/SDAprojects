@@ -111,7 +111,7 @@ August\or September\or October\or November\or December\fi\ \number\year}
 
 \section{Introduction}
 For this assignment we switch from dataset on canteloupe melons to analysing the $\text{CO}_{2}$ emissions in grams per kilometer
-of cars from 2000 to 2013. As usual we select a random subsample of the data we do our study on, this time of size 500.
+of cars from 2000 to 2013. As in the previous projects we select a random subsample of the data we do our study on, this time of size 500.
 
 \section{Full model analysis}\label{fullModel}
 Firstly, we draw a correlation matrix to check for potential multicollinearity in the data. Note that we also had to remove categorical
@@ -119,14 +119,16 @@ variables \texttt{euro\_standard, fuel\_type} and \texttt{transmission\_type} fr
 
 \begin{figure}[!h]
   \centering
-  \includegraphics[width=0.5\textwidth]{project3/corrplot.png}
+  \includegraphics[width=0.45\textwidth]{project3/corrplot.png}
   \caption{Correlation matrix of numeric predictors}
   \label{fig:corrplot}
 \end{figure}
 In figure \ref{fig:corrplot} we see that there is in fact some significant correlation between ``metric'' variables and engine capacity.
 Since combined metric is a weighted average of urban and extra-urban metric correlation between them is expected. Intuition also
 tells us that the larger engines consume more fuel, so corrleation to this variable is also not surprising. Calculating the correlation
-with the response variable, previously mentioned covariates are the most correlated with it. Below all values are presented.
+with the response variable, previously mentioned covariates are the most correlated with it. Determinant of the correlation matrix is almost zero, another
+proof that multicollinearity is present in our data.
+Below all values are presented.
 
 \begin{verbatim}
 co2  engine_capacity urban_metric extra_urban_metric combined_metric 
@@ -148,11 +150,10 @@ statistically significant, \texttt{euro\_standard4, urban\_metric, extra\_urban\
 \end{figure}
 
 
-Even though a few variables are non-significant, the linear model assumptions are satisfied. The mean of errors is zero
+Even though a few variables are non-significant, the linear model assumptions are satisfied. The mean of errors is zero as is their sum,
 and their variance does not differ across the data. From the plot of errors versus fitted values we see that in the largest datacloud no trends
 are appearing. Fewer cars have very large fitted values of their $\text{CO}_2$ emissions and their residuals very a bit more.
-
-Some outliers are present.
+Some outliers are present, but in majority they are not severe.
 
 \begin{figure}[h]
   \begin{subfigure}[b]{0.5\linewidth}
@@ -172,12 +173,13 @@ Some outliers are present.
 
 From the Q-Q plot in figure \ref{fig:QQ_cars.full} we can conclude that the residuals normally distributed, as the majority fall on the 
 diagonal line with some deviation towards the tails, with the three most notable outliers being Maserati Spyder (669 -- very fancy sports car),
-Daewoo cars Matiz (610 -- small family car from South-Korea) and Volkswagen Touareg (label 726).
+Daewoo cars Matiz (610 -- small family car from South Korea) and Volkswagen Touareg (label 726).
 This way we also confirm that Gauss-Markov conditions hold.
 
 \section{Transforming the response variable}
-\subsection{Box-Cox transformation}
-In the following section we turn our attention to potentially improving our model by transforming the response variable. We start off
+In the following sections we turn our attention to potentially improving our model by transforming the response variable.
+\subsection{Box-Cox transformation}\label{boxCoxTrans}
+We start off
 by applying the Box-Cox transformation, for which we obtain $\lambda = -0.14.$ This however does not yield satisfactoty results. The
 adjusted $R^2$ value remains high at 0.951, however the residuals do not exhibit trends of normal distribution. Several more outliers 
 appear in the negative direction. The Q-Q plot shows heavier tails than in the model without a transformation and plotting
@@ -202,13 +204,15 @@ resiudals versus fitted values shows a quadratic trend.
 \end{figure}
 
 \subsection{Logarithm transformation}
-We proceed with a logarithm of the response variable. The conclusions are fairly similar to the transformation with $\lambda=-0.14,$ which
-is not completely surprising as the logarithm is simply a Box-Cox with parameter zero. As the plots look alike to those in figure \ref{fig:BoxCox}
+We proceed with a logarithm of the response variable. The conclusions are fairly similar to those of section \label{boxCoxTrans}, which
+is not surprising as the logarithm is simply a Box-Cox with parameter zero.
+In this particular case, 0 is even in the 95\% confidence interval for $\lambda$ in the previous section.
+As the plots look alike to those in figure \ref{fig:BoxCox}
 we do not include them here. We do not use the logarithm to transform the response
 either.
 
 \subsection{Square root}
-The last option we check here is the square root. Once again we find that the transformation does not improve the fit. Residuals versus
+The last option we check is the square root. Once again we find that the transformation does not improve the fit. Residuals versus
 fitted value plot in figure \ref{fig:resVsFit_sqrt} exhibits a quadratic trend, and especially error's the lower tail is much heavier
 than in the normal distribution, as seen in \ref{fig:QQ_sqrt}.
 
@@ -240,34 +244,41 @@ with these models would be invalid. Therefore we conclude, that no transformatio
 As mentioned in section \ref{fullModel} some variables in the full model appear to be statistically insignificant. We will now try
 to improve our model by eliminating them. 
 
-First we try to remove all variables with too high p-value, that is \texttt{urban\_metric, extra\_urban\_metric, noise\_level} 
+First we remove all variables with too high p-value, that is \texttt{urban\_metric, extra\_urban\_metric, noise\_level} 
 and \texttt{co\_emissions}, simultaneously (\texttt{euro\_standard4} is 
 part of a categorical variable). In this model all coefficients except for those corresponding to \texttt{euro\_standard4} and 
 \texttt{euro\_standard6} are significant. Applying the F-test to check whether this can be done however rejects this hypothesis with
 a p-value of 0.0013.
 
-This changes after  we add \texttt{extra\_urban\_metric} to our model. That way we do not reject the null that coefficients are
-zero and all covariates (except \texttt{euro\_standard4} and \texttt{euro\_standard6}) are significant. The adjusted $R^2$ value
+This changes after  we add \texttt{extra\_urban\_metric} to the new model. That way we do not reject the null that coefficients are
+zero and all covariates (except \texttt{euro\_standard4}) are significant. The adjusted $R^2$ value
 remains very high at 0.9975 (compared to 0.9976 in the original model). Residuals behave appropriately and in fact rather similarly
 to the full model. Since omitted variables do not seem to add anything to the model we continue our project with the 
-sparser one, now conisting of: euro standard, transmission type, engine capacity, fuel type, extra urban metric, combined metric and 
+sparser one, now conisting of covariates: euro standard, transmission type, engine capacity, fuel type, extra urban metric, combined metric and 
 $\text{NO}_\text{x}$ emissions.
 
 \subsection{Can we remove \texttt{euro\_standard} from the model?}
 Using the \texttt{anova} function on the reduced model, which still contains the variable \texttt{euro\_standard}, we see in the results
-of the partial F-test that we cannot remove this variable from our model - the p-value obtained is essentially zero. 
+of the partial F-test that we cannot remove it from our model - the p-value obtained is essentially zero. 
 Looking into the results in greater detail 
 we see a very large p-value for \texttt{euro\_standard4}, which implies that the slope for these cars is statistically the same as the 
 baseline, which is \texttt{euro\_standard3}. This is not the case for cars with engines of higher standards, as both of those have p-values
-below the 0.05. Therefore we cannot remove all slopes corresponding to \texttt{euro\_standard} from our model simultaneously.
+below the 0.05. Therefore we cannot remove all slopes corresponding to \texttt{euro\_standard} from our model simultaneously. In figure
+\ref{fig:boxplotEuroStd} we see that behaviour of standards 3 and 4 is very similar, while remaining different compared to engines with higher standards
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.45\textwidth]{project3/boxplots.png}
+  \caption{Similar trends visible between standards 3 and 4, and 5 and 6. Number of cars with engine standard 6 is however much smaller
+  than the rest.}
+  \label{fig:boxplotEuroStd}
+\end{figure}
 
 \section{Confidence and prediction intervals}
-Continuing to work with the reduced model introduced in the previous section \ref{varSec}, we construct the prediction and confidence interval
-answering questions 5 and 6.
 
 \subsection{Confidence interval for $\beta_1$}
 Following the mentioned model, $\beta_1$ corresponds to the coefficient in front of \texttt{euro\_standard4}. The 95\% confidence
-interval is then $[-0.698,0.961].$
+interval is $\text{CI}(\beta_{1},0.95) = [-0.698,0.961].$
 We see that 0 is a possible option for this value, however removing all slopes related to \texttt{euro\_standard} is still not possible 
 as confidence intervals for other values do not include 0.
 
@@ -277,6 +288,6 @@ Here we construct a 99\% prediction interval for a car with the following specif
 9.2, \texttt{extra\_urban\_metric} = 5.6, \texttt{combined\_metric} = 6.9, \texttt{noise\_level} = 72, \texttt{co\_emissions}
 = 273.5, \texttt{nox\_emissions} = 43. 
 
-Prediction interval for its $\text{CO}_2$ emissions in grams per kilometer is $[156.35,170.48].$
+Prediction interval for its $\text{CO}_2$ emissions in grams per kilometer is $[156.35,170.48],$ with the fitted value 163.42.
 
 \end{document}

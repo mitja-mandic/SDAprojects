@@ -27,18 +27,22 @@ cars.full <- lm(co2~., data = mydata[,-c(1,2,3)])
 #insignificant: co_emissions, noise_level, extra_urban_metric, urban_metric, euro_standard4 - euro_standard is factor
 cars.full
 summary(cars.full)
+
 #multicoll
 #remove categorical variables euro_standard, transmission_type, fuel_type and descriptives for correlation plots
 mydata.noDescriptives <- within(mydata, rm(manufacturer, model, description, euro_standard, transmission_type, fuel_type))
 mydata.noDescriptives <- mydata.noDescriptives[,c(6,1,2,3,4,5,7,8)]
+#no response
+corrMat <- cor(mydata.noDescriptives[,-1])
 round(cor(mydata.noDescriptives)[,"co2"], 2)
-corrplot(cor(mydata.noDescriptives[,-1]), tl.col = "black")
+det(corrMat)
+
+corrplot(corrMat, tl.col = "black")
 sum(cars.full$residuals)
 pairs(mydata.noDescriptives)
 
 #vif values for our model. Metrics by far the highest, others relatively low
 vif(cars.full)
-
 
 
 #standardized residuals. a few outliers, but variance seems homogenous.
@@ -76,8 +80,8 @@ lambda <- co2.bc$x[which.max(co2.bc[["y"]])]
 #####Select transformation here!:
 
 #trans.co2 <- bcPower(co2, lambda)
- trans.co2 <- log(co2)
-# trans.co2 <- sqrt(co2)
+#trans.co2 <- log(co2)
+#trans.co2 <- sqrt(co2)
 
 qqnorm(trans.co2)
 hist(trans.co2)
@@ -122,6 +126,7 @@ summary(cars.full)
 cars.reduced <- lm(co2 ~ euro_standard + transmission_type + engine_capacity +
                     fuel_type + combined_metric + nox_emissions + extra_urban_metric, 
                     data = mydata)
+summary(cars.reduced)
 sigma(cars.reduced)
 
 anova(cars.full, cars.reduced)
@@ -138,7 +143,8 @@ par(mfrow=c(1,1))
 anova(cars.reduced) #seems like no
 summary(cars.reduced) #euro_standard4 isn't signif diff compared to euro_standard3, 5&6 are different
 
-
+boxplot(co2~euro_standard, col = c("red", "blue", "yellow", "green"), pch=19, 
+        main = "Boxplots of emissions of each engine standard")
 #question 5
 
 #confidence interval for beta_1, which is euro_standard4 in our case
